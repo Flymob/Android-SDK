@@ -1,0 +1,40 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!--for MRAID store picture-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--for MRAID store picture end-->
+
+    <uses-feature
+        android:name="android.hardware.location"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.location.gps"
+        android:required="false" />
+
+    <permission
+        android:name="${applicationId}.flymob.sdk.broadcast"
+        android:label="FlyMob sdk permission"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="${applicationId}.flymob.sdk.broadcast" />
+
+    <application>
+        <activity
+            android:name="com.flymob.sdk.common.ads.interstitial.activity.FlyMobActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <!--MRAID video-->
+        <activity
+            android:name="com.flymob.sdk.common.ads.interstitial.activity.FlyMobVideoActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <!--MRAID video end-->
+        <service
+            android:name="com.flymob.sdk.internal.server.FlyMobService"
+            android:exported="false" />
+    </application>
+</manifest>
