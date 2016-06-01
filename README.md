@@ -1,6 +1,6 @@
-#How-to integrate
+##How-to integrate
 See in https://github.com/Flymob/Android-SDK/wiki
 
-#Sample app
+##Sample app
 https://github.com/Flymob/Android-SDK/tree/master/sample
 
