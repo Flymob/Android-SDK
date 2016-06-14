@@ -16,8 +16,9 @@ import android.widget.TextView;
 
 import com.flymob.sample.R;
 import com.flymob.sample.utiles.ToastHelper;
-import com.flymob.sdk.common.ads.native_ad.FlyMobNativeAd;
+import com.flymob.sdk.common.ads.FailResponse;
 import com.flymob.sdk.common.ads.native_ad.IFlyMobNativeAdListener;
+import com.flymob.sdk.common.ads.native_ad.FlyMobNativeAd;
 import com.flymob.sdk.internal.server.response.impl.ErrorResponse;
 
 public class NativeAdActivity extends AppCompatActivity {
@@ -98,7 +99,7 @@ public class NativeAdActivity extends AppCompatActivity {
 
             @Override
             public void loaded(FlyMobNativeAd nativeAd) {
-                ToastHelper.showMessage(NativeAdActivity.this, "loaded");
+                ToastHelper.showToast(NativeAdActivity.this, "loaded");
 
                 LayoutInflater layoutInflater = LayoutInflater.from(NativeAdActivity.this);
                 ViewGroup nativeAdView = (ViewGroup) layoutInflater.inflate(R.layout.native_ad, null);
@@ -139,23 +140,23 @@ public class NativeAdActivity extends AppCompatActivity {
             }
 
             @Override
-            public void failed(FlyMobNativeAd nativeAd, ErrorResponse response) {
-                com.flymob.sdk.internal.utils.ToastHelper.showToast(NativeAdActivity.this, "failed " + response.getResponseString());
+            public void failed(FlyMobNativeAd nativeAd, FailResponse response) {
+                ToastHelper.showToast(NativeAdActivity.this, "failed " + response.getResponseString());
             }
 
             @Override
             public void shown(FlyMobNativeAd nativeAd) {
-                ToastHelper.showMessage(NativeAdActivity.this, "shown");
+                ToastHelper.showToast(NativeAdActivity.this, "shown");
             }
 
             @Override
             public void clickUrlOpened(FlyMobNativeAd nativeAd) {
-                ToastHelper.showMessage(NativeAdActivity.this, "clickUrlOpened");
+                ToastHelper.showToast(NativeAdActivity.this, "clickUrlOpened");
             }
 
             @Override
             public void expired(FlyMobNativeAd nativeAd) {
-                ToastHelper.showMessage(NativeAdActivity.this, "expired");
+                ToastHelper.showToast(NativeAdActivity.this, "expired");
                 loadNativeAd();
             }
         });

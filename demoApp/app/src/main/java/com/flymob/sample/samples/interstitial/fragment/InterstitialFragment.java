@@ -9,10 +9,11 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.flymob.sample.R;
-import com.flymob.sdk.common.ads.interstitial.FlyMobInterstitial;
+import com.flymob.sdk.common.ads.FailResponse;
 import com.flymob.sdk.common.ads.interstitial.IFlyMobInterstitialListener;
+import com.flymob.sdk.common.ads.interstitial.FlyMobInterstitial;
 import com.flymob.sdk.internal.server.response.impl.ErrorResponse;
-import com.flymob.sdk.internal.utils.ToastHelper;
+import com.flymob.sample.utiles.ToastHelper;
 
 /**
  * Created by a.baskakov on 15/04/16.
@@ -91,7 +92,7 @@ public class InterstitialFragment extends Fragment {
             }
 
             @Override
-            public void failed(FlyMobInterstitial interstitial, ErrorResponse response) {
+            public void failed(FlyMobInterstitial interstitial, FailResponse response) {
                 ToastHelper.showToast(getActivity(), "failed " + response.getResponseString());
             }
 

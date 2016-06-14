@@ -34,7 +34,7 @@
             android:configChanges="keyboardHidden|orientation|screenSize" />
         <!--MRAID video end-->
         <service
-            android:name="com.flymob.sdk.internal.server.FlyMobService"
+            android:name="com.flymob.sdk.common.server.FlyMobService"
             android:exported="false" />
     </application>
 </manifest>

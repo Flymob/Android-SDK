@@ -26,31 +26,55 @@
         </activity>
 
         <activity
-            android:name="com.flymob.sample.samples.interstitial.InterstitialActivity"
+            android:name=".samples.interstitial.InterstitialActivity"
             android:label="@string/interstitial_sample"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name="com.flymob.sample.samples.interstitial.fragment.FragmentInterstitialActivity"
+            android:name=".samples.interstitial.fragment.FragmentInterstitialActivity"
             android:label="@string/fragment_interstitial_sample"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name="com.flymob.sample.samples.interstitial.MoPubInterstitialActivity"
+            android:name=".samples.interstitial.MoPubInterstitialActivity"
             android:label="@string/mo_pub_interstitial_sample"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name="com.flymob.sample.samples.native_ad.NativeAdActivity"
+            android:name=".samples.native_ad.NativeAdActivity"
             android:label="@string/native_ad_sample"
             android:screenOrientation="sensorPortrait"
             android:windowSoftInputMode="adjustPan"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name="com.flymob.sample.samples.native_ad.NativeAdRecyclerViewActivity"
+            android:name=".samples.native_ad.NativeAdRecyclerViewActivity"
             android:label="@string/native_ad_recycler_view_sample"
             android:theme="@style/AppTheme.NoActionBar" />
+
+
+        <!--MoPub-->
+        <activity
+            android:name="com.mopub.mobileads.MoPubActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.mopub.mobileads.MraidActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.mopub.common.MoPubBrowser"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.mopub.mobileads.MraidVideoPlayerActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <!--MoPub end-->
+
     </application>
 
 </manifest>

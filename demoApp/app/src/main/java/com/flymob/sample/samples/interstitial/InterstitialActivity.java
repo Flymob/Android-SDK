@@ -8,9 +8,10 @@ import android.widget.EditText;
 
 import com.flymob.sample.R;
 import com.flymob.sample.utiles.ToastHelper;
-import com.flymob.sdk.common.ads.interstitial.FlyMobInterstitial;
+import com.flymob.sdk.common.FlyMob;
+import com.flymob.sdk.common.ads.FailResponse;
 import com.flymob.sdk.common.ads.interstitial.IFlyMobInterstitialListener;
-import com.flymob.sdk.internal.server.response.impl.ErrorResponse;
+import com.flymob.sdk.common.ads.interstitial.FlyMobInterstitial;
 
 public class InterstitialActivity extends AppCompatActivity {
     private static final int ZONE_ID = 605778;
@@ -79,33 +80,33 @@ public class InterstitialActivity extends AppCompatActivity {
         mFlyMobInterstitial.addListener(new IFlyMobInterstitialListener() {
             @Override
             public void loaded(FlyMobInterstitial interstitial) {
-                ToastHelper.showMessage(InterstitialActivity.this, "loaded");
+                ToastHelper.showToast(InterstitialActivity.this, "loaded");
                 mButtonShow.setEnabled(true);
             }
 
             @Override
-            public void failed(FlyMobInterstitial interstitial, ErrorResponse response) {
-                ToastHelper.showMessage(InterstitialActivity.this, "failed " + response.getResponseString());
+            public void failed(FlyMobInterstitial interstitial, FailResponse response) {
+                ToastHelper.showToast(InterstitialActivity.this, "failed " + response.getResponseString());
             }
 
             @Override
             public void shown(FlyMobInterstitial interstitial) {
-                ToastHelper.showMessage(InterstitialActivity.this, "shown");
+                ToastHelper.showToast(InterstitialActivity.this, "shown");
             }
 
             @Override
             public void clicked(FlyMobInterstitial interstitial) {
-                ToastHelper.showMessage(InterstitialActivity.this, "clicked");
+                ToastHelper.showToast(InterstitialActivity.this, "clicked");
             }
 
             @Override
             public void closed(FlyMobInterstitial interstitial) {
-                ToastHelper.showMessage(InterstitialActivity.this, "closed");
+                ToastHelper.showToast(InterstitialActivity.this, "closed");
             }
 
             @Override
             public void expired(FlyMobInterstitial interstitial) {
-                ToastHelper.showMessage(InterstitialActivity.this, "expired");
+                ToastHelper.showToast(InterstitialActivity.this, "expired");
                 loadInterstitial();
             }
         });

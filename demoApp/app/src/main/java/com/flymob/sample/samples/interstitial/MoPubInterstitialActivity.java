@@ -7,10 +7,11 @@ import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
 
-import com.flymob.sample.R;
-import com.flymob.sample.utiles.ToastHelper;
 import com.mopub.mobileads.MoPubErrorCode;
 import com.mopub.mobileads.MoPubInterstitial;
+
+import com.flymob.sample.R;
+import com.flymob.sample.utiles.ToastHelper;
 
 public class MoPubInterstitialActivity extends AppCompatActivity {
 
@@ -69,30 +70,30 @@ public class MoPubInterstitialActivity extends AppCompatActivity {
         mMoPubInterstitial.setInterstitialAdListener(new MoPubInterstitial.InterstitialAdListener() {
             @Override
             public void onInterstitialLoaded(MoPubInterstitial interstitial) {
-                ToastHelper.showMessage(MoPubInterstitialActivity.this, "onInterstitialLoaded");
+                ToastHelper.showToast(MoPubInterstitialActivity.this, "onInterstitialLoaded");
                 mButtonShow.setEnabled(true);
             }
 
             @Override
             public void onInterstitialFailed(MoPubInterstitial interstitial, MoPubErrorCode errorCode) {
-                ToastHelper.showMessage(MoPubInterstitialActivity.this, "onInterstitialFailed " + errorCode);
+                ToastHelper.showToast(MoPubInterstitialActivity.this, "onInterstitialFailed " + errorCode);
                 mButtonShow.setEnabled(false);
 
             }
 
             @Override
             public void onInterstitialShown(MoPubInterstitial interstitial) {
-                ToastHelper.showMessage(MoPubInterstitialActivity.this, "onInterstitialShown");
+                ToastHelper.showToast(MoPubInterstitialActivity.this, "onInterstitialShown");
             }
 
             @Override
             public void onInterstitialClicked(MoPubInterstitial interstitial) {
-                ToastHelper.showMessage(MoPubInterstitialActivity.this, "onInterstitialClicked");
+                ToastHelper.showToast(MoPubInterstitialActivity.this, "onInterstitialClicked");
             }
 
             @Override
             public void onInterstitialDismissed(MoPubInterstitial interstitial) {
-                ToastHelper.showMessage(MoPubInterstitialActivity.this, "onInterstitialDismissed");
+                ToastHelper.showToast(MoPubInterstitialActivity.this, "onInterstitialDismissed");
             }
         });
     }

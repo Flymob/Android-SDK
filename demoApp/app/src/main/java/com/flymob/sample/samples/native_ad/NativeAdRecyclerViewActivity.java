@@ -14,9 +14,9 @@ import com.flymob.sample.samples.native_ad.recycler.elements.NativeAdElement;
 import com.flymob.sample.samples.native_ad.recycler.elements.NewsElement;
 import com.flymob.sample.utiles.ToastHelper;
 import com.flymob.sample.utiles.recycler_view.ItemClickSupport;
-import com.flymob.sdk.common.ads.native_ad.FlyMobNativeAd;
+import com.flymob.sdk.common.ads.FailResponse;
 import com.flymob.sdk.common.ads.native_ad.IFlyMobNativeAdListener;
-import com.flymob.sdk.internal.server.response.impl.ErrorResponse;
+import com.flymob.sdk.common.ads.native_ad.FlyMobNativeAd;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -90,7 +90,7 @@ public class NativeAdRecyclerViewActivity extends AppCompatActivity {
         mFlyMobNativeAd.addListener(new IFlyMobNativeAdListener() {
             @Override
             public void loaded(FlyMobNativeAd nativeAd) {
-                ToastHelper.showMessage(NativeAdRecyclerViewActivity.this, "loaded");
+                ToastHelper.showToast(NativeAdRecyclerViewActivity.this, "loaded");
                 int i = AD_POSITION_INTERVAL - 1;
                 while (i < mNews.size()) {
                     if (mFirstLoad) {
@@ -108,23 +108,23 @@ public class NativeAdRecyclerViewActivity extends AppCompatActivity {
             }
 
             @Override
-            public void failed(FlyMobNativeAd nativeAd, ErrorResponse response) {
-                com.flymob.sdk.internal.utils.ToastHelper.showToast(NativeAdRecyclerViewActivity.this, "failed " + response.getResponseString());
+            public void failed(FlyMobNativeAd nativeAd, FailResponse response) {
+                ToastHelper.showToast(NativeAdRecyclerViewActivity.this, "failed " + response.getResponseString());
             }
 
             @Override
             public void shown(FlyMobNativeAd nativeAd) {
-                ToastHelper.showMessage(NativeAdRecyclerViewActivity.this, "shown");
+                ToastHelper.showToast(NativeAdRecyclerViewActivity.this, "shown");
             }
 
             @Override
             public void clickUrlOpened(FlyMobNativeAd nativeAd) {
-                ToastHelper.showMessage(NativeAdRecyclerViewActivity.this, "clickUrlOpened");
+                ToastHelper.showToast(NativeAdRecyclerViewActivity.this, "clickUrlOpened");
             }
 
             @Override
             public void expired(FlyMobNativeAd nativeAd) {
-                ToastHelper.showMessage(NativeAdRecyclerViewActivity.this, "expired");
+                ToastHelper.showToast(NativeAdRecyclerViewActivity.this, "expired");
                 loadNativeAd();
             }
         });
