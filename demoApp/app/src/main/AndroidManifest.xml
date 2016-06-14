@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.flymob.sample">
-
-    <!--override facebook min sdk version 11 to our min sdk version-->
-    <uses-sdk tools:overrideLibrary="com.facebook.ads" />
 
     <application
         android:allowBackup="true"
