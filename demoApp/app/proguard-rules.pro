@@ -15,3 +15,14 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+-keep public class com.flymob.sdk.common.** { public *; }
+-keep public class com.mopub.mobileads.* { public *; }
+
+-keep public class com.flymob.sample.** { public *; }
+
+-dontwarn com.inmobi.**
+-dontwarn com.facebook.**
+-dontwarn com.applovin.**
+-dontwarn com.amazon.**
+-dontwarn com.chartboost.**

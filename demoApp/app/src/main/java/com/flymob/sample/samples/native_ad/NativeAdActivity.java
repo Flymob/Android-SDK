@@ -115,23 +115,12 @@ public class NativeAdActivity extends AppCompatActivity {
                 rating.setText(String.format(getString(R.string.rating), mFlyMobNativeAd.getRating()));
                 openUrlButton.setText(mFlyMobNativeAd.getCta());
 
-                View.OnClickListener openClickListener = new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (mFlyMobNativeAd.canOpenClickUrl()) {
-                            mFlyMobNativeAd.openClickUrl();
-                        }
-                    }
-                };
-
-                openUrlButton.setOnClickListener(openClickListener);
-                image.setOnClickListener(openClickListener);
-
                 mFlyMobNativeAd.displayIcon(icon);
                 mFlyMobNativeAd.displayImage(image);
 
-                //If you don't call registerView, impression will not be counted!
-                mFlyMobNativeAd.registerView(nativeAdView);
+                //If you don't call registerView, impression and click will not work!
+                mFlyMobNativeAd.registerView(openUrlButton);
+                mFlyMobNativeAd.registerView(image);
 
                 mNativeAdPlace.removeAllViews();
                 mNativeAdPlace.addView(nativeAdView, new FrameLayout.LayoutParams(

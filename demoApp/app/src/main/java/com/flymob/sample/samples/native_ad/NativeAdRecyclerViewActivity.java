@@ -54,22 +54,6 @@ public class NativeAdRecyclerViewActivity extends AppCompatActivity {
 
         mRecyclerView.setAdapter(mNewsAdapter);
 
-        ItemClickSupport.addTo(mRecyclerView).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
-            @Override
-            public void onItemClick(RecyclerView parent, View view, int position, long id) {
-                if (position != -1) {
-                    ElementBase elementBase = mNewsAdapter.getItem(position);
-                    if (elementBase instanceof NativeAdElement) {
-                        NativeAdElement nativeAdElement = (NativeAdElement) elementBase;
-                        FlyMobNativeAd nativeAd = nativeAdElement.getFlyMobNativeAd();
-                        if (nativeAd.canOpenClickUrl()) {
-                            nativeAd.openClickUrl();
-                        }
-                    }
-                }
-            }
-        });
-
         initNativeAd();
     }
 

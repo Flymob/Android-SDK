@@ -2,7 +2,6 @@ package com.flymob.sample.samples.native_ad.recycler.holders;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -28,14 +27,21 @@ public class NativeAdViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void setItem(NativeAdElement element) {
+        //If you you re-use the view to show different ads, make sure to call unregisterView
+        //before registering the same view with a different instance of FlyMobNativeAd
+        if(mElement!=null){
+            FlyMobNativeAd nativeAd = mElement.getFlyMobNativeAd();
+            if(nativeAd!=null){
+                nativeAd.unregisterView(itemView);
+            }
+        }
+
         mElement = element;
         FlyMobNativeAd flymobNativeAd = element.getFlyMobNativeAd();
         mTitle.setText(flymobNativeAd.getTitle());
         mText.setText(flymobNativeAd.getText());
         flymobNativeAd.displayIcon(mIcon);
-
-        //If you don't call registerView, impression will not be counted!
-        flymobNativeAd.registerView((ViewGroup) itemView);
+        //If you don't call registerView, impression and click will not work!
+        flymobNativeAd.registerView(itemView);
     }
-
 }
