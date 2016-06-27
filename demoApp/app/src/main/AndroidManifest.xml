@@ -32,6 +32,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
+            android:name=".samples.interstitial.AdMobInterstitialActivity"
+            android:label="@string/ad_mob_interstitial_sample"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
             android:name=".samples.interstitial.MoPubInterstitialActivity"
             android:label="@string/mo_pub_interstitial_sample"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -40,8 +45,8 @@
             android:name=".samples.native_ad.NativeAdActivity"
             android:label="@string/native_ad_sample"
             android:screenOrientation="sensorPortrait"
-            android:windowSoftInputMode="adjustPan"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
 
         <activity
             android:name=".samples.native_ad.NativeAdRecyclerViewActivity"
@@ -62,14 +67,18 @@
         <activity
             android:name="com.mopub.mobileads.MraidVideoPlayerActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
-        <activity
-            android:name="com.google.android.gms.ads.AdActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
 
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
         <!--MoPub end-->
+
+        <!--AdMob-->
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent" />
+        <!--AdMob end-->
 
     </application>
 
