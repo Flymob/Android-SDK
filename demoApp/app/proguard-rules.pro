@@ -26,3 +26,4 @@
 -dontwarn com.applovin.**
 -dontwarn com.amazon.**
 -dontwarn com.chartboost.**
+-dontwarn com.avocarrot.**
