@@ -18,7 +18,7 @@
 
 -keep public class com.flymob.sdk.common.** { public *; }
 -keep public class com.mopub.mobileads.* { public *; }
-
+-keep public class com.google.ads.mediation.* { public *; }
 -keep public class com.flymob.sample.** { public *; }
 
 -dontwarn com.inmobi.**
