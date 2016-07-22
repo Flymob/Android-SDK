@@ -18,8 +18,8 @@ import com.mopub.mobileads.MoPubInterstitial;
 
 public class AdMobInterstitialActivity extends AppCompatActivity {
 
-    private static final String AD_UNIT_ID = "ca-app-pub-9334091054678914/7594988387";
     private static final String APP_ID = "ca-app-pub-9334091054678914~6118255181";
+    private static final String AD_UNIT_ID = "ca-app-pub-9334091054678914/7594988387";
 
     Toolbar mToolBar;
     View mButtonLoad;
