@@ -17,9 +17,21 @@
 #}
 
 -keep public class com.flymob.sdk.common.** { public *; }
--keep public class com.mopub.mobileads.* { public *; }
--keep public class com.google.ads.mediation.* { public *; }
 -keep public class com.flymob.sample.** { public *; }
+
+#AdMob
+-keep public class com.google.android.gms.ads.** {
+   public *;
+}
+-keep public class com.google.ads.** {
+   public *;
+}
+
+#MoPub
+-keepclassmembers class com.mopub.** { public *; }
+-keep public class com.mopub.**
+-keep public class android.webkit.JavascriptInterface {}
+-keep public class com.mopub.mobileads.* { public *; }
 
 -dontwarn com.inmobi.**
 -dontwarn com.facebook.**
