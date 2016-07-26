@@ -30,8 +30,10 @@
 -keep public class android.webkit.JavascriptInterface {}
 -keep public class com.mopub.mobileads.* { public *; }
 
+# Facebook
+-keep public class com.facebook.ads.**
+
 -dontwarn com.inmobi.**
--dontwarn com.facebook.**
 -dontwarn com.applovin.**
 -dontwarn com.amazon.**
 -dontwarn com.chartboost.**
