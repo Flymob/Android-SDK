@@ -16,16 +16,13 @@
 #   public *;
 #}
 
--keep public class com.flymob.sdk.common.** { public *; }
 -keep public class com.flymob.sample.** { public *; }
 
+-keep public class com.flymob.sdk.common.** { public *; }
+
 #AdMob
--keep public class com.google.android.gms.ads.** {
-   public *;
-}
--keep public class com.google.ads.** {
-   public *;
-}
+-keep public class com.google.android.gms.ads.** { public *; }
+-keep public class com.google.ads.** { public *; }
 
 #MoPub
 -keepclassmembers class com.mopub.** { public *; }
