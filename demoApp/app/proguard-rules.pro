@@ -1,40 +1,58 @@
 # Add project specific ProGuard rules here.
-# By default, the flags in this file are appended to flags specified
-# in /Users/a.baskakov/android-sdk/tools/proguard/proguard-android.txt
-# You can edit the include path and order by changing the proguardFiles
-# directive in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
 
-# Add any project specific keep options here:
-
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
-
+#App
 -keep public class com.flymob.sample.** { public *; }
 
+# FlyMob
 -keep public class com.flymob.sdk.common.** { public *; }
 
-#AdMob
--keep public class com.google.android.gms.ads.** { public *; }
--keep public class com.google.ads.** { public *; }
-
-#MoPub
--keepclassmembers class com.mopub.** { public *; }
--keep public class com.mopub.**
--keep public class android.webkit.JavascriptInterface {}
--keep public class com.mopub.mobileads.* { public *; }
-
 # Facebook
--keep public class com.facebook.ads.**
+-dontwarn com.facebook.**
+-keep public class com.facebook.** { public *; }
 
--dontwarn com.inmobi.**
--dontwarn com.applovin.**
+# Amazon
+-keep class com.amazon.** { *; }
 -dontwarn com.amazon.**
+
+# Mopub
+-keep public class com.mopub.**
+-keepclassmembers class com.mopub.** { public *; }
+-keep public class com.mopub.mobileads.* { public *; }
+-dontwarn com.mopub.volley.toolbox.**
+
+# Applovin
+-keep class com.applovin.** { *; }
+-dontwarn com.applovin.**
+
+# Chartboost
+-keep class com.chartboost.** { *; }
 -dontwarn com.chartboost.**
+
+# Inmobi
+-keepattributes SourceFile,LineNumberTable,InnerClasses
+-keep class com.inmobi.** { *; }
+-dontwarn com.inmobi.**
+
+# Avocarrot
+-keep class com.avocarrot.** { *; }
+-keepclassmembers class com.avocarrot.** { *; }
 -dontwarn com.avocarrot.**
+-keep public class * extends android.view.View {
+  public <init>(android.content.Context);
+  public <init>(android.content.Context, android.util.AttributeSet);
+  public <init>(android.content.Context, android.util.AttributeSet, int);
+  public void set*(...);
+}
+
+# Admob
+-keep class com.google.android.gms.ads.** { *; }
+-keep public class com.google.ads.mediation.* { public *; }
+
+# Legacy
+-keep class org.apache.http.** { *; }
+-dontwarn org.apache.http.**
+-dontwarn android.net.http.**
+
+# Google Play Services library 9.0.0 only
+-dontwarn android.security.NetworkSecurityPolicy
+-keep public @com.google.android.gms.common.util.DynamiteApi class * { *; }
