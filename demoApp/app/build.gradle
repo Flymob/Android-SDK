@@ -64,7 +64,7 @@ dependencies {
     //Admob
     //You should compile your app against the Google Play Services Library in order to use
     //the Android Advertising ID instead of the device ID, as required by Google.
-    compile 'com.google.android.gms:play-services-ads:9.2.0'
+    compile 'com.google.android.gms:play-services-ads:8.4.0'
 
     //MoPub
     compile('com.mopub:mopub-sdk:4.5.1@aar') {
