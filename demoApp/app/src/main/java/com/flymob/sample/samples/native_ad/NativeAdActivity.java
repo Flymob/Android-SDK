@@ -17,9 +17,10 @@ import android.widget.TextView;
 import com.flymob.sample.R;
 import com.flymob.sample.utiles.ToastHelper;
 import com.flymob.sdk.common.ads.FailResponse;
-import com.flymob.sdk.common.ads.native_ad.IFlyMobNativeAdListener;
 import com.flymob.sdk.common.ads.native_ad.FlyMobNativeAd;
-import com.flymob.sdk.internal.server.response.impl.ErrorResponse;
+import com.flymob.sdk.common.ads.native_ad.IFlyMobNativeAdListener;
+
+import java.util.Locale;
 
 public class NativeAdActivity extends AppCompatActivity {
     private static final int ZONE_ID = 613296;
@@ -120,7 +121,6 @@ public class NativeAdActivity extends AppCompatActivity {
 
                 //If you don't call registerView, impression and click will not work!
                 mFlyMobNativeAd.registerView(openUrlButton);
-                mFlyMobNativeAd.registerView(image);
 
                 mNativeAdPlace.removeAllViews();
                 mNativeAdPlace.addView(nativeAdView, new FrameLayout.LayoutParams(
@@ -130,7 +130,7 @@ public class NativeAdActivity extends AppCompatActivity {
 
             @Override
             public void failed(FlyMobNativeAd nativeAd, FailResponse response) {
-                ToastHelper.showToast(NativeAdActivity.this, "failed " + response.getResponseString());
+                ToastHelper.showToast(NativeAdActivity.this, String.format(Locale.getDefault(), "failed: %d - %s", response.getStatusCode(), response.getResponseString()));
             }
 
             @Override

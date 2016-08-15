@@ -39,15 +39,9 @@ public class MainActivity extends AppCompatActivity {
 
         mRecyclerView.setHasFixedSize(true);
 
-        List<MenuElement> menuElements = new LinkedList<>();
-        menuElements.add(new OpenActivityMenuElement(getString(R.string.interstitial_sample), InterstitialActivity.class));
-        menuElements.add(new OpenActivityMenuElement(getString(R.string.fragment_interstitial_sample), FragmentInterstitialActivity.class));
-        menuElements.add(new OpenActivityMenuElement(getString(R.string.ad_mob_interstitial_sample), AdMobInterstitialActivity.class));
-        menuElements.add(new OpenActivityMenuElement(getString(R.string.mo_pub_interstitial_sample), MoPubInterstitialActivity.class));
-        menuElements.add(new OpenActivityMenuElement(getString(R.string.native_ad_sample), NativeAdActivity.class));
-        menuElements.add(new OpenActivityMenuElement(getString(R.string.native_ad_recycler_view_sample), NativeAdRecyclerViewActivity.class));
 
-        mMenuAdapter = new MenuAdapter(this, menuElements);
+
+        mMenuAdapter = new MenuAdapter(this, MenuHelper.getMenu(this));
         mRecyclerView.setAdapter(mMenuAdapter);
 
         ItemClickSupport.addTo(mRecyclerView).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {

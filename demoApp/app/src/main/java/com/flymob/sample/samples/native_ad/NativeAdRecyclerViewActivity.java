@@ -20,6 +20,7 @@ import com.flymob.sdk.common.ads.native_ad.FlyMobNativeAd;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 
 public class NativeAdRecyclerViewActivity extends AppCompatActivity {
     private static final int ITEM_COUNT = 35;
@@ -93,7 +94,7 @@ public class NativeAdRecyclerViewActivity extends AppCompatActivity {
 
             @Override
             public void failed(FlyMobNativeAd nativeAd, FailResponse response) {
-                ToastHelper.showToast(NativeAdRecyclerViewActivity.this, "failed " + response.getResponseString());
+                ToastHelper.showToast(NativeAdRecyclerViewActivity.this, String.format(Locale.getDefault(), "failed: %d - %s", response.getStatusCode(), response.getResponseString()));
             }
 
             @Override
