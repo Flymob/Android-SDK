@@ -18,14 +18,6 @@
         android:name="android.hardware.location.gps"
         android:required="false" />
 
-    <!--Custom permissions with signature level protection do not stop
-    the auto-update from Google Play Store.-->
-    <permission
-        android:name="${applicationId}.flymob.sdk.broadcast"
-        android:label="FlyMob sdk permission"
-        android:protectionLevel="signature" />
-    <uses-permission android:name="${applicationId}.flymob.sdk.broadcast" />
-
     <application>
         <activity
             android:name="com.flymob.sdk.common.ads.interstitial.activity.FlyMobActivity"

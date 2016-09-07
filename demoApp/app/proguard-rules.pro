@@ -48,8 +48,27 @@
 -keep class com.google.android.gms.ads.** { *; }
 -keep public class com.google.ads.mediation.* { public *; }
 
+# Unity Ads
+-keepattributes JavascriptInterface
+-keepattributes SourceFile,LineNumberTable
+-keep class com.unity3d.ads.** { *; }
+-keep class com.applifier.** { *; }
+-dontwarn com.unity3d.ads.**
+
+# Adcolony
+-dontnote com.immersion.**
+-dontwarn android.webkit.**
+-dontwarn com.jirbo.adcolony.**
+
+# Vungle
+-keep class com.vungle.** { public *; }
+-keep class javax.inject.*
+-keepattributes *Annotation*, Signature
+-keep class dagger.*
+-dontwarn com.vungle.**
+
 # Legacy
--keep class org.apache.http.** { *; }
+-keep class org.apache.http.** { public *; }
 -dontwarn org.apache.http.**
 -dontwarn android.net.http.**
 
