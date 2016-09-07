@@ -23,26 +23,31 @@
 
         <activity
             android:name=".samples.interstitial.InterstitialActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/interstitial_sample"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:name=".samples.interstitial.fragment.FragmentInterstitialActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/fragment_interstitial_sample"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:name=".samples.interstitial.AdMobInterstitialActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/ad_mob_interstitial_sample"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:name=".samples.interstitial.MoPubInterstitialActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/mo_pub_interstitial_sample"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:name=".samples.native_ad.NativeAdActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/native_ad_sample"
             android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.NoActionBar"
@@ -50,6 +55,7 @@
 
         <activity
             android:name=".samples.native_ad.NativeAdRecyclerViewActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/native_ad_recycler_view_sample"
             android:theme="@style/AppTheme.NoActionBar" />
 
