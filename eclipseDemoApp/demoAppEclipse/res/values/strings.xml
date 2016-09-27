@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">FlyMob Sample</string>
+    <string name="interstitial_sample">Interstitial sample</string>
+    <string name="ad_mob_interstitial_sample">AdMob interstitial sample</string>
+    <string name="fragment_interstitial_sample">Fragment interstitial sample</string>
+    <string name="mo_pub_interstitial_sample">MopUb interstitial sample</string>
+    <string name="native_ad_sample">NativeAd sample</string>
+    <string name="native_ad_recycler_view_sample">NativeAd RecyclerView sample</string>
+    <string name="preload_icon">Preload icon</string>
+    <string name="preload_image">Preload image</string>
+    <string name="rating">★ %.1f</string>
+    <string name="load">load</string>
+    <string name="show">show</string>
+</resources>
