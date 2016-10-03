@@ -59,7 +59,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.1.1'
 
     jarCompile fileTree(dir: 'sdkLibs', include: ['*.jar'])
-    jCenterCompile 'com.flymob:FlyMobSdk:1.5.5'
+    jCenterCompile 'com.flymob:FlyMobSdk:1.6.1'
 
     //Admob
     //You should compile your app against the Google Play Services Library in order to use
