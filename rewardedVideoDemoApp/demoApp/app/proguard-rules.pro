@@ -5,6 +5,7 @@
 
 # FlyMob
 -keep public class com.flymob.sdk.common.** { public *; }
+-keepattributes EnclosingMethod
 
 # Facebook
 -dontwarn com.facebook.**
