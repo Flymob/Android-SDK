@@ -50,7 +50,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:24.1.1'
-    compile 'com.flymob:FlyMobSdk:1.6.4'
+    compile 'com.flymob:FlyMobSdk:1.6.6'
 
     //Admob
     //You should compile your app against the Google Play Services Library in order to use
@@ -61,7 +61,4 @@ dependencies {
     compile('com.mopub:mopub-sdk:4.5.1@aar') {
         transitive = true
     }
-
-    //UnityAds
-    compile project(':UnityAds')
 }
