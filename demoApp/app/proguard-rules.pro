@@ -54,6 +54,7 @@
 -keep class com.unity3d.ads.** { *; }
 -keep class com.applifier.** { *; }
 -dontwarn com.unity3d.ads.**
+-keep class android.webkit.JavascriptInterface {*;}
 
 # Adcolony
 -dontnote com.immersion.**
