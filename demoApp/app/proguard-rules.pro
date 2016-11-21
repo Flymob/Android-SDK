@@ -33,17 +33,6 @@
 -keep class com.inmobi.** { *; }
 -dontwarn com.inmobi.**
 
-# Avocarrot
--keep class com.avocarrot.** { *; }
--keepclassmembers class com.avocarrot.** { *; }
--dontwarn com.avocarrot.**
--keep public class * extends android.view.View {
-  public <init>(android.content.Context);
-  public <init>(android.content.Context, android.util.AttributeSet);
-  public <init>(android.content.Context, android.util.AttributeSet, int);
-  public void set*(...);
-}
-
 # Admob
 -keep class com.google.android.gms.ads.** { *; }
 -keep public class com.google.ads.mediation.* { public *; }
@@ -59,7 +48,11 @@
 # Adcolony
 -dontnote com.immersion.**
 -dontwarn android.webkit.**
--dontwarn com.jirbo.adcolony.**
+-keep class com.adcolony.** { public *; }
+-dontwarn com.adcolony.**
+-keepclassmembers class * {
+    @android.webkit.JavascriptInterface <methods>;
+}
 
 # Vungle
 -keep class com.vungle.** { public *; }
