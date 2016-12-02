@@ -9,6 +9,15 @@
 # Facebook
 -dontwarn com.facebook.**
 -keep public class com.facebook.** { public *; }
+-keepclasseswithmembers class * {
+    *** *onError(...);
+}
+-keepclasseswithmembers class * {
+    *** *onAdLoaded(...);
+}
+-keepclasseswithmembers class * {
+    *** *onAdClicked(...);
+}
 
 # Amazon
 -keep class com.amazon.** { *; }
