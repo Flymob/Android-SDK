@@ -21,7 +21,7 @@ import java.util.Locale;
  * Created by a.baskakov on 15/04/16.
  */
 public class InterstitialFragment extends Fragment {
-    private static final int ZONE_ID = 605778;
+    private static final int ZONE_ID = 934102;
     View mButtonLoad;
     View mButtonShow;
     EditText mEditText;

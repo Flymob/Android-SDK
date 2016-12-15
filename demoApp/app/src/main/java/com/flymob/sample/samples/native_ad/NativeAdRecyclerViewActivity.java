@@ -24,7 +24,7 @@ import java.util.Locale;
 public class NativeAdRecyclerViewActivity extends AppCompatActivity {
     private static final int ITEM_COUNT = 10;
     private static final int AD_POSITION = 5;
-    private static final int ZONE_ID = 613296;
+    private static final int ZONE_ID = 934105;
     private Toolbar mToolBar;
     private RecyclerView mRecyclerView;
     private NewsAdapter mNewsAdapter;
