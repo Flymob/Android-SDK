@@ -23,7 +23,7 @@ import com.flymob.sdk.common.ads.native_ad.IFlyMobNativeAdListener;
 import java.util.Locale;
 
 public class NativeAdActivity extends AppCompatActivity {
-    private static final int ZONE_ID = 934105;
+    private static final int ZONE_ID = 841897;
     Toolbar mToolBar;
     View mButtonLoad;
     View mButtonShow;
