@@ -19,10 +19,6 @@
     *** *onAdClicked(...);
 }
 
-# Amazon
--keep class com.amazon.** { *; }
--dontwarn com.amazon.**
-
 # Mopub
 -keep public class com.mopub.**
 -keepclassmembers class com.mopub.** { public *; }
@@ -32,15 +28,6 @@
 # Applovin
 -keep class com.applovin.** { *; }
 -dontwarn com.applovin.**
-
-# Chartboost
--keep class com.chartboost.** { *; }
--dontwarn com.chartboost.**
-
-# Inmobi
--keepattributes SourceFile,LineNumberTable,InnerClasses
--keep class com.inmobi.** { *; }
--dontwarn com.inmobi.**
 
 # Admob
 -keep class com.google.android.gms.ads.** { *; }
