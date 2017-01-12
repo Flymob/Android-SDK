@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.flymob.sample.R;
@@ -15,10 +16,9 @@ import com.flymob.sdk.common.ads.video.IFlyMobRewardedVideoListener;
 public class RewardedVideoActivity extends AppCompatActivity {
     private static final int ZONE_ID = 759265;
     Toolbar mToolBar;
-    View mButtonLoad;
+    Button mButtonInit;
     View mButtonShow;
     EditText mEditText;
-    FlyMobRewardedVideo mFlyMobRewardedVideo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,103 +27,82 @@ public class RewardedVideoActivity extends AppCompatActivity {
         mToolBar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolBar);
 
-        mButtonLoad = findViewById(R.id.button_load);
+        mButtonInit = (Button) findViewById(R.id.button_load);
+        mButtonInit.setText(getString(R.string.init));
         mButtonShow = findViewById(R.id.button_show);
+        mButtonShow.setEnabled(false);
         mEditText = (EditText) findViewById(R.id.edit_text);
         mEditText.setText(String.valueOf(ZONE_ID));
 
-        initRewardedVideo();
-
-        //To ensure a smooth experience, you should pre-fetch the content as soon
-        // as your Activity is created, then display it if the fetch was successful.
-        loadRewardedVideo();
-
-        mButtonLoad.setOnClickListener(new View.OnClickListener() {
+        mButtonInit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadRewardedVideo();
+                mButtonInit.setEnabled(false);
+                initRewardedVideo();
             }
         });
 
         mButtonShow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mButtonShow.setEnabled(false);
-                if (mFlyMobRewardedVideo.isLoaded()) {
-                    mFlyMobRewardedVideo.show();
+                if (FlyMobRewardedVideo.isLoaded()) {
+                    FlyMobRewardedVideo.show();
                 }
             }
         });
     }
 
-    private void loadRewardedVideo() {
-        mButtonShow.setEnabled(false);
-
-        mFlyMobRewardedVideo.setZoneId(getZoneId());
-        mFlyMobRewardedVideo.load();
-    }
-
     private int getZoneId() {
         String digitsString = String.valueOf(mEditText.getText()).replaceAll("\\D+", "");
         try {
-            int zoneId = Integer.parseInt(digitsString);
-            return zoneId;
+            return Integer.parseInt(digitsString);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
         return 0;
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateUI();
+    }
+
+    private void updateUI() {
+        mButtonShow.setEnabled(FlyMobRewardedVideo.isLoaded());
+        mButtonInit.setEnabled(!FlyMobRewardedVideo.isLoaded());
+    }
+
     private void initRewardedVideo() {
-        mFlyMobRewardedVideo = new FlyMobRewardedVideo(this, getZoneId());
-        mFlyMobRewardedVideo.addListener(new IFlyMobRewardedVideoListener() {
+        FlyMobRewardedVideo.initialize(this, getZoneId());
+        FlyMobRewardedVideo.setListener(new IFlyMobRewardedVideoListener() {
             @Override
-            public void loaded(FlyMobRewardedVideo video) {
+            public void loaded() {
                 ToastHelper.showToast(RewardedVideoActivity.this, "loaded");
                 mButtonShow.setEnabled(true);
             }
 
             @Override
-            public void failed(FlyMobRewardedVideo video, FailResponse response) {
-                ToastHelper.showToast(RewardedVideoActivity.this, "failed " + response.getResponseString());
-            }
-
-            @Override
-            public void shown(FlyMobRewardedVideo video) {
+            public void shown() {
                 ToastHelper.showToast(RewardedVideoActivity.this, "shown");
             }
 
             @Override
-            public void closed(FlyMobRewardedVideo video) {
+            public void closed() {
                 ToastHelper.showToast(RewardedVideoActivity.this, "closed");
+                updateUI();
             }
 
             @Override
-            public void started(FlyMobRewardedVideo video) {
+            public void started() {
                 ToastHelper.showToast(RewardedVideoActivity.this, "started");
             }
 
             @Override
-            public void completed(FlyMobRewardedVideo video) {
+            public void completed() {
                 ToastHelper.showToast(RewardedVideoActivity.this, "completed");
             }
-
-            @Override
-            public void expired(FlyMobRewardedVideo video) {
-                ToastHelper.showToast(RewardedVideoActivity.this, "expired");
-                loadRewardedVideo();
-            }
-
         });
-    }
-
-    @Override
-    protected void onDestroy() {
-        if (mFlyMobRewardedVideo != null) {
-            mFlyMobRewardedVideo.onDestroy();
-            mFlyMobRewardedVideo = null;
-        }
-        super.onDestroy();
     }
 }
 

@@ -11,5 +11,6 @@
     <string name="preload_image">Preload image</string>
     <string name="rating">★ %.1f</string>
     <string name="load">load</string>
+    <string name="init">init</string>
     <string name="show">show</string>
 </resources>
