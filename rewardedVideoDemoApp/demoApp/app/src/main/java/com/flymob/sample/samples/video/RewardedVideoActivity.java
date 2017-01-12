@@ -100,6 +100,7 @@ public class RewardedVideoActivity extends AppCompatActivity {
 
             @Override
             public void completed() {
+                //reward user here
                 ToastHelper.showToast(RewardedVideoActivity.this, "completed");
             }
         });
