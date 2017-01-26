@@ -24,7 +24,7 @@
 -keep public class com.mopub.**
 -keepclassmembers class com.mopub.** { public *; }
 -keep public class com.mopub.mobileads.* { public *; }
--dontwarn com.mopub.volley.toolbox.**
+-dontwarn com.mopub.**
 
 # Applovin
 -keep class com.applovin.** { *; }
