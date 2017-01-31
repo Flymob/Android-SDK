@@ -1,0 +1,103 @@
+!SESSION 2017-01-31 16:04:27.333 -----------------------------------------------
+eclipse.buildId=4.6.0.I20160606-1100
+java.version=1.8.0_91
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_GB
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/a.baskakov/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -keyring /Users/a.baskakov/.eclipse_keyring
+
+!ENTRY org.eclipse.core.net 1 0 2017-01-31 16:05:15.118
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2017-01-31 16:22:21.148 -----------------------------------------------
+eclipse.buildId=4.6.0.I20160606-1100
+java.version=1.8.0_91
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_GB
+Framework arguments:  -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -keyring /Users/a.baskakov/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -data /Users/a.baskakov/Documents/Android-SDK/eclipseDemoApp/demoAppEclipse -product org.eclipse.epp.package.java.product -keyring /Users/a.baskakov/.eclipse_keyring
+
+!ENTRY org.eclipse.core.net 1 0 2017-01-31 16:22:26.830
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2017-01-31 16:23:17.859
+!MESSAGE 
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/android-support-v7-appcompat/res' does not exist.
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:335)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:209)
+	at org.eclipse.core.internal.resources.Container.members(Container.java:239)
+	at org.eclipse.core.internal.resources.Container.members(Container.java:226)
+	at com.android.ide.eclipse.adt.internal.sdk.Sdk$7.run(Sdk.java:1485)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2017-01-31 16:23:17.861
+!MESSAGE Resource '/android-support-v7-appcompat/res' does not exist.
+
+!ENTRY org.eclipse.core.resources 4 4 2017-01-31 16:23:23.165
+!MESSAGE Exception occurred while saving project preferences: /android-support-v7-appcompat/.settings/org.eclipse.jdt.core.prefs.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: A resource already exists on disk '/Users/a.baskakov/Documents/Android-SDK/eclipseDemoApp/appcompat_v7/.settings'.
+	at org.eclipse.core.internal.resources.Folder.assertCreateRequirements(Folder.java:47)
+	at org.eclipse.core.internal.resources.Folder.create(Folder.java:93)
+	at org.eclipse.core.internal.resources.ProjectPreferences$1.run(ProjectPreferences.java:634)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2240)
+	at org.eclipse.core.internal.resources.ProjectPreferences.save(ProjectPreferences.java:660)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalFlush(EclipsePreferences.java:431)
+	at org.eclipse.core.internal.resources.ProjectPreferences.flush(ProjectPreferences.java:365)
+	at org.eclipse.jdt.internal.core.JavaProject.setOption(JavaProject.java:2955)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.checkAndFixCompilerCompliance(ProjectHelper.java:513)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.fixProjectClasspathEntries(ProjectHelper.java:422)
+	at com.android.ide.eclipse.adt.internal.sdk.Sdk$1$1.run(Sdk.java:1169)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 272 2017-01-31 16:23:23.165
+!MESSAGE A resource already exists on disk '/Users/a.baskakov/Documents/Android-SDK/eclipseDemoApp/appcompat_v7/.settings'.
+
+!ENTRY org.eclipse.core.resources 4 4 2017-01-31 16:23:23.168
+!MESSAGE Exception occurred while saving project preferences: /android-support-v7-appcompat/.settings/org.eclipse.jdt.core.prefs.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: A resource already exists on disk '/Users/a.baskakov/Documents/Android-SDK/eclipseDemoApp/appcompat_v7/.settings'.
+	at org.eclipse.core.internal.resources.Folder.assertCreateRequirements(Folder.java:47)
+	at org.eclipse.core.internal.resources.Folder.create(Folder.java:93)
+	at org.eclipse.core.internal.resources.ProjectPreferences$1.run(ProjectPreferences.java:634)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2240)
+	at org.eclipse.core.internal.resources.ProjectPreferences.save(ProjectPreferences.java:660)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalFlush(EclipsePreferences.java:431)
+	at org.eclipse.core.internal.resources.ProjectPreferences.flush(ProjectPreferences.java:365)
+	at org.eclipse.jdt.internal.core.JavaProject.setOption(JavaProject.java:2955)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.checkAndFixCompilerCompliance(ProjectHelper.java:515)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.fixProjectClasspathEntries(ProjectHelper.java:422)
+	at com.android.ide.eclipse.adt.internal.sdk.Sdk$1$1.run(Sdk.java:1169)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 272 2017-01-31 16:23:23.169
+!MESSAGE A resource already exists on disk '/Users/a.baskakov/Documents/Android-SDK/eclipseDemoApp/appcompat_v7/.settings'.
+
+!ENTRY org.eclipse.core.resources 4 4 2017-01-31 16:23:23.178
+!MESSAGE Exception occurred while saving project preferences: /android-support-v7-appcompat/.settings/org.eclipse.jdt.core.prefs.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: A resource already exists on disk '/Users/a.baskakov/Documents/Android-SDK/eclipseDemoApp/appcompat_v7/.settings'.
+	at org.eclipse.core.internal.resources.Folder.assertCreateRequirements(Folder.java:47)
+	at org.eclipse.core.internal.resources.Folder.create(Folder.java:93)
+	at org.eclipse.core.internal.resources.ProjectPreferences$1.run(ProjectPreferences.java:634)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2240)
+	at org.eclipse.core.internal.resources.ProjectPreferences.save(ProjectPreferences.java:660)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalFlush(EclipsePreferences.java:431)
+	at org.eclipse.core.internal.resources.ProjectPreferences.flush(ProjectPreferences.java:365)
+	at org.eclipse.jdt.internal.core.JavaProject.setOption(JavaProject.java:2955)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.checkAndFixCompilerCompliance(ProjectHelper.java:517)
+	at com.android.ide.eclipse.adt.internal.project.ProjectHelper.fixProjectClasspathEntries(ProjectHelper.java:422)
+	at com.android.ide.eclipse.adt.internal.sdk.Sdk$1$1.run(Sdk.java:1169)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 272 2017-01-31 16:23:23.179
+!MESSAGE A resource already exists on disk '/Users/a.baskakov/Documents/Android-SDK/eclipseDemoApp/appcompat_v7/.settings'.
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2017-01-31 16:23:27.339
+!MESSAGE 
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Resource '/android-support-v7-recyclerview/res' does not exist.
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:335)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:209)
+	at org.eclipse.core.internal.resources.Container.members(Container.java:239)
+	at org.eclipse.core.internal.resources.Container.members(Container.java:226)
+	at com.android.ide.eclipse.adt.internal.sdk.Sdk$7.run(Sdk.java:1485)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2017-01-31 16:23:27.339
+!MESSAGE Resource '/android-support-v7-recyclerview/res' does not exist.

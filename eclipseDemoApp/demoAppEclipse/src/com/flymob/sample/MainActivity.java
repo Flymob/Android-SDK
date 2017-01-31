@@ -12,7 +12,6 @@ import com.flymob.sample.recycler.MenuElement;
 import com.flymob.sample.recycler.OpenActivityMenuElement;
 import com.flymob.sample.samples.interstitial.AdMobInterstitialActivity;
 import com.flymob.sample.samples.interstitial.InterstitialActivity;
-import com.flymob.sample.samples.interstitial.MoPubInterstitialActivity;
 import com.flymob.sample.samples.interstitial.fragment.FragmentInterstitialActivity;
 import com.flymob.sample.samples.native_ad.NativeAdActivity;
 import com.flymob.sample.samples.native_ad.NativeAdRecyclerViewActivity;

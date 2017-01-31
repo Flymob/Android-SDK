@@ -12,9 +12,6 @@ import com.flymob.sample.utiles.ToastHelper;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
-import com.mopub.mobileads.MoPubErrorCode;
-import com.mopub.mobileads.MoPubInterstitial;
 
 public class AdMobInterstitialActivity extends AppCompatActivity {
 
@@ -40,8 +37,6 @@ public class AdMobInterstitialActivity extends AppCompatActivity {
         mEditText.setInputType(InputType.TYPE_CLASS_TEXT);
         mEditText.setEnabled(false);
         mEditText.setText(String.valueOf(AD_UNIT_ID));
-
-        MobileAds.initialize(getApplicationContext(), APP_ID);
 
         initInterstitial();
 

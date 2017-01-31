@@ -1,0 +1,8 @@
+INDEX VERSION 1.129+/Users/a.baskakov/Documents/Android-SDK/eclipseDemoApp/.metadata/.plugins/org.eclipse.jdt.core
+45674419.index
+3598728497.index
+2810821545.index
+1270315800.index
+703525645.index
+20224799.index
+988640261.index
