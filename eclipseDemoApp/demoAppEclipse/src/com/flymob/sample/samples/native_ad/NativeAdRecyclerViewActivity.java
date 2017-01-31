@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 
 import com.flymob.sample.R;
 import com.flymob.sample.samples.native_ad.recycler.NewsAdapter;
@@ -13,25 +12,24 @@ import com.flymob.sample.samples.native_ad.recycler.elements.ElementBase;
 import com.flymob.sample.samples.native_ad.recycler.elements.NativeAdElement;
 import com.flymob.sample.samples.native_ad.recycler.elements.NewsElement;
 import com.flymob.sample.utiles.ToastHelper;
-import com.flymob.sample.utiles.recycler_view.ItemClickSupport;
 import com.flymob.sdk.common.ads.FailResponse;
 import com.flymob.sdk.common.ads.native_ad.IFlyMobNativeAdListener;
 import com.flymob.sdk.common.ads.native_ad.FlyMobNativeAd;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 
 public class NativeAdRecyclerViewActivity extends AppCompatActivity {
-    private static final int ITEM_COUNT = 35;
-    private static final int AD_POSITION_INTERVAL = 8;
-    private static final int ZONE_ID = 613296;
+    private static final int ITEM_COUNT = 10;
+    private static final int AD_POSITION = 5;
+    private static final int ZONE_ID = 934105;
     private Toolbar mToolBar;
     private RecyclerView mRecyclerView;
     private NewsAdapter mNewsAdapter;
-    private FlyMobNativeAd mFlyMobNativeAd;
     private List<ElementBase> mNews;
-    private boolean mFirstLoad = true;
+    private List<FlyMobNativeAd> mFlyMobNativeAds = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,69 +59,53 @@ public class NativeAdRecyclerViewActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        loadNativeAd();
     }
 
-    private void loadNativeAd() {
-        mFlyMobNativeAd.load();
-    }
 
     private void initNativeAd() {
-        mFlyMobNativeAd = new FlyMobNativeAd(this, ZONE_ID);
-        mFlyMobNativeAd.preloadImage(false);
+        int count = ITEM_COUNT / AD_POSITION;
+        for (int i = 0; i < count; i++) {
+            final int position = AD_POSITION * i;
 
-        mFlyMobNativeAd.addListener(new IFlyMobNativeAdListener() {
-            @Override
-            public void loaded(FlyMobNativeAd nativeAd) {
-                ToastHelper.showToast(NativeAdRecyclerViewActivity.this, "loaded");
-                int i = AD_POSITION_INTERVAL - 1;
-                while (i < mNews.size()) {
-                    if (mFirstLoad) {
-                        mNews.add(i, new NativeAdElement(mFlyMobNativeAd));
-                        mNewsAdapter.notifyItemInserted(i);
-                    } else {
-                        mNews.set(i, new NativeAdElement(mFlyMobNativeAd));
-                        mNewsAdapter.notifyItemChanged(i);
-                    }
-                    i += AD_POSITION_INTERVAL;
+            final FlyMobNativeAd flyMobNativeAd = new FlyMobNativeAd(this, ZONE_ID);
+            mFlyMobNativeAds.add(flyMobNativeAd);
+            flyMobNativeAd.addListener(new IFlyMobNativeAdListener() {
+                @Override
+                public void loaded(FlyMobNativeAd nativeAd) {
+                    ToastHelper.showToast(NativeAdRecyclerViewActivity.this, "loaded");
+                    mNews.add(position, new NativeAdElement(flyMobNativeAd));
+                    mNewsAdapter.notifyItemInserted(position);
                 }
-                if (mFirstLoad) {
-                    mFirstLoad = false;
+
+                @Override
+                public void failed(FlyMobNativeAd nativeAd, FailResponse response) {
+                    ToastHelper.showToast(NativeAdRecyclerViewActivity.this, String.format(Locale.getDefault(), "failed: %d - %s", response.getStatusCode(), response.getResponseString()));
                 }
-            }
 
-            @Override
-            public void failed(FlyMobNativeAd nativeAd, FailResponse response) {
-                ToastHelper.showToast(NativeAdRecyclerViewActivity.this, String.format(Locale.getDefault(), "failed: %d - %s", response.getStatusCode(), response.getResponseString()));
-            }
+                @Override
+                public void shown(FlyMobNativeAd nativeAd) {
+                    ToastHelper.showToast(NativeAdRecyclerViewActivity.this, "shown");
+                }
 
-            @Override
-            public void shown(FlyMobNativeAd nativeAd) {
-                ToastHelper.showToast(NativeAdRecyclerViewActivity.this, "shown");
-            }
+                @Override
+                public void clickUrlOpened(FlyMobNativeAd nativeAd) {
+                    ToastHelper.showToast(NativeAdRecyclerViewActivity.this, "clickUrlOpened");
+                }
 
-            @Override
-            public void clickUrlOpened(FlyMobNativeAd nativeAd) {
-                ToastHelper.showToast(NativeAdRecyclerViewActivity.this, "clickUrlOpened");
-            }
-
-            @Override
-            public void expired(FlyMobNativeAd nativeAd) {
-                ToastHelper.showToast(NativeAdRecyclerViewActivity.this, "expired");
-                loadNativeAd();
-            }
-        });
+                @Override
+                public void expired(FlyMobNativeAd nativeAd) {
+                    ToastHelper.showToast(NativeAdRecyclerViewActivity.this, "expired");
+                }
+            });
+            flyMobNativeAd.load();
+        }
     }
 
     @Override
     protected void onDestroy() {
-        if (mFlyMobNativeAd != null) {
-            mFlyMobNativeAd.onDestroy();
-            mFlyMobNativeAd = null;
+        for (FlyMobNativeAd flyMobNativeAd : mFlyMobNativeAds) {
+            flyMobNativeAd.onDestroy();
         }
         super.onDestroy();
     }
 }
-
-
-

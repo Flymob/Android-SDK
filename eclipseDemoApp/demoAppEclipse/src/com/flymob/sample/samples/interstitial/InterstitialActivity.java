@@ -15,7 +15,7 @@ import com.flymob.sdk.common.ads.interstitial.IFlyMobInterstitialListener;
 import java.util.Locale;
 
 public class InterstitialActivity extends AppCompatActivity {
-    private static final int ZONE_ID = 605778;
+    private static final int ZONE_ID = 934102;
     Toolbar mToolBar;
     View mButtonLoad;
     View mButtonShow;
