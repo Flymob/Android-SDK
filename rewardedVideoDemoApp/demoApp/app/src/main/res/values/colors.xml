@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /******************************************
+  ~  * Copyright (c) 2017
+  ~  * Alexey Baskakov
+  ~  *
+  ~  * FlyMob
+  ~  * http://flymob.com
+  ~  ******************************************/
+  -->
+
 <resources>
     <color name="primary">#0e76bc</color>
     <color name="primaryDark">#002b59</color>

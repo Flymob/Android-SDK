@@ -1,3 +1,13 @@
+<!--
+  ~ /******************************************
+  ~  * Copyright (c) 2017
+  ~  * Alexey Baskakov
+  ~  *
+  ~  * FlyMob
+  ~  * http://flymob.com
+  ~  ******************************************/
+  -->
+
 <resources>
     <string name="app_name">FlyMob Sample</string>
     <string name="interstitial_sample">Interstitial sample</string>

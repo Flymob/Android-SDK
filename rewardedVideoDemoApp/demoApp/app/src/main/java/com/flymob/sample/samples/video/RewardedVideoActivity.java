@@ -1,3 +1,13 @@
+/*
+ * *****************************************
+ *  * Copyright (c) 2017
+ *  * Alexey Baskakov
+ *  *
+ *  * FlyMob
+ *  * http://flymob.com
+ *  *****************************************
+ */
+
 package com.flymob.sample.samples.video;
 
 import android.os.Bundle;
